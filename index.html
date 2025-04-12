@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learn - Education Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-800 text-white min-h-screen overflow-hidden">
+    <!-- Header -->
+    <header class="bg-gray-900 px-5 py-3 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Deep Learn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+       
+        <div>
+            <button class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-user-circle mr-2"></i>
+                Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex h-[calc(100vh-4rem)]">
+        <!-- Left Panel (Upload Section) -->
+        <div class="w-[30%] min-w-[350px] bg-gray-900 h-full p-5 shadow-lg transform transition-all duration-300 flex flex-col overflow-y-auto custom-scrollbar resize-x">
+            <h2 class="text-xl font-bold mb-6">What would you like to learn today?</h2>
+            
+            <div class="search-container w-full mb-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search for a topic ..." class="w-full py-2 pl-10 pr-4 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Quick Suggestions -->
+            <div class="quick-suggestions mb-6">
+                <p class="text-sm text-gray-400 mb-2">Quick suggestions:</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Machine Learning</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Python Basics</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Web Development</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Data Structures</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">AI Ethics</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Quantum Computing</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <div class="upload-container bg-gray-800 rounded-xl p-5 text-center hover:bg-gray-750 transition-colors duration-300 shadow-md">
+                    <i class="fas fa-file-pdf text-4xl mb-3 text-indigo-400"></i>
+                    <p class="mb-3">Upload PDF to generate a video (Optional)</p>
+                    <label class="inline-block bg-indigo-600 px-4 py-2 rounded-lg cursor-pointer hover:bg-indigo-700 transition-colors duration-300 shadow-lg">
+                        <i class="fas fa-upload mr-2"></i> Upload File
+                        <input type="file" accept=".pdf" class="hidden" id="pdf-upload">
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Generation Settings -->
+            <div class="bg-gray-800 rounded-lg p-4 shadow-md mb-4">
+                <h3 class="text-sm font-bold mb-4 text-indigo-300">Generation Settings</h3>
+                
+                <!-- Content Type Toggle -->
+                <div class="mb-4">
+                    <p class="text-xs text-gray-400 mb-2">Content Type</p>
+                    <div class="flex items-center bg-gray-700 rounded-lg p-2 gap-x-3" >
+                      <span class="text-sm">Engg.</span>
+                      <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                      </label>
+                      <span class="text-sm">Comp. Exams</span>
+                    </div>
+                  </div>
+                  
+                  
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs text-gray-400 mb-1 block">Language</label>
+                        <select class="w-full bg-gray-700 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                            <option>English</option>
+                            <option>Hindi</option>
+                            <option>Marathi</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="text-xs text-gray-400 mb-1 block">Duration</label>
+                        <select class="w-full bg-gray-700 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                            <option>5 minutes</option>
+                            <option>10 minutes</option>
+                            <option>15 minutes</option>
+                            <option>20 minutes</option>
+                            <option>30 minutes</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="text-xs text-gray-400 mb-1 block">Difficulty Level</label>
+                        <select class="w-full bg-gray-700 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <span class="ml-2 text-sm font-medium text-gray-300">Include Analogies</span>
+                        </label>
+                        <p class="text-xs text-gray-400 mt-1">Analogies help explain complex concepts by comparing them to familiar ideas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel (Video Generation) -->
+        <div class="flex-1 p-5 flex flex-col items-center overflow-y-auto resize-x min-w-[400px] bg-gray-800">
+            <h2 class="text-2xl font-bold mb-6 self-start text-indigo-300">Video Generation</h2>
+            
+            <div class="w-full max-w-3xl aspect-video bg-gray-900 rounded-xl mb-5 flex items-center justify-center shadow-lg overflow-hidden relative group video-placeholder">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-40 transition-all duration-300">
+                    <i class="fas fa-video text-6xl text-indigo-400 group-hover:text-indigo-300 transition-all duration-300"></i>
+                </div>
+                <!-- Video will replace this when generated -->
+                <video id="video-player" class="hidden w-full h-full object-cover"></video>
+            </div>
+            
+            <div class="controls flex space-x-4 mb-5">
+                <button id="generate-btn" class="bg-indigo-600 px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center shadow-lg">
+                    <i class="fas fa-play-circle mr-2"></i>
+                    Generate Video
+                </button>
+                <div class="relative">
+                    <select id="speed-select" class="bg-gray-700 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option>1x Speed</option>
+                        <option>1.25x Speed</option>
+                        <option>1.5x Speed</option>
+                        <option>2x Speed</option>
+                    </select>
+                    <i class="fas fa-tachometer-alt absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel (Output Section) -->
+        <div class="w-[30%] min-w-[350px] bg-gray-900 h-full p-5 shadow-lg flex flex-col resize-x overflow-y-auto custom-scrollbar">
+            <h2 class="text-xl font-bold mb-6 text-indigo-300">Output</h2>
+            
+            <div class="flex mb-4 border-b border-gray-800 pb-4">
+                <button id="flowchart-btn" class="flex-1 bg-indigo-600 py-2 rounded-lg mr-2 hover:bg-indigo-700 transition-colors duration-300">
+                    <i class="fas fa-project-diagram mr-1"></i> Flowchart
+                </button>
+                <button id="notes-btn" class="flex-1 bg-gray-800 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                    <i class="fas fa-sticky-note mr-1"></i> Notes
+                </button>
+            </div>
+            
+            <div id="output-content" class="flex-1 overflow-y-auto custom-scrollbar">
+                <!-- Flowchart View (Default) -->
+                <div id="flowchart-view" class="h-full flex items-center justify-center">
+                    <div class="text-center text-gray-500">
+                        <i class="fas fa-project-diagram text-4xl mb-3"></i>
+                        <p>Generate a video to see the flowchart</p>
+                    </div>
+                </div>
+                
+                <!-- Notes View (Hidden by default) -->
+                <div id="notes-view" class="hidden space-y-3">
+                    <div class="bg-gray-800 rounded-lg p-3 hover:bg-gray-700 transition-colors duration-300 transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Key Point 1</h3>
+                        <p class="text-sm text-gray-400">The summary will appear here after video generation.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-3 hover:bg-gray-700 transition-colors duration-300 transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Key Point 2</h3>
+                        <p class="text-sm text-gray-400">Important concepts will be highlighted here.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-3 hover:bg-gray-700 transition-colors duration-300 transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Key Point 3</h3>
+                        <p class="text-sm text-gray-400">Detailed explanations and examples will be provided.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="quiz-section" class="mt-4 hidden">
+                <button class="w-full bg-green-600 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 flex items-center justify-center group shadow-lg">
+                    <i class="fas fa-question-circle mr-2 group-hover:animate-bounce"></i>
+                    Take Quiz
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Toggle between Flowchart and Notes views
+        document.getElementById('flowchart-btn').addEventListener('click', function() {
+            document.getElementById('flowchart-view').classList.remove('hidden');
+            document.getElementById('notes-view').classList.add('hidden');
+            this.classList.remove('bg-gray-800');
+            this.classList.add('bg-indigo-600');
+            document.getElementById('notes-btn').classList.remove('bg-indigo-600');
+            document.getElementById('notes-btn').classList.add('bg-gray-800');
+        });
+
+        document.getElementById('notes-btn').addEventListener('click', function() {
+            document.getElementById('notes-view').classList.remove('hidden');
+            document.getElementById('flowchart-view').classList.add('hidden');
+            this.classList.remove('bg-gray-800');
+            this.classList.add('bg-indigo-600');
+            document.getElementById('flowchart-btn').classList.remove('bg-indigo-600');
+            document.getElementById('flowchart-btn').classList.add('bg-gray-800');
+        });
+
+        // Quick suggestions functionality
+        document.querySelectorAll('.quick-suggestions span').forEach(function(suggestion) {
+            suggestion.addEventListener('click', function() {
+                const searchInput = document.querySelector('.search-container input');
+                searchInput.value = this.textContent;
+                // Add focus to make it appear like searching
+                searchInput.focus();
+            });
+        });
+
+        // Video playback speed control
+        document.getElementById('speed-select').addEventListener('change', function() {
+            const videoPlayer = document.getElementById('video-player');
+            if (!videoPlayer.classList.contains('hidden')) {
+                const speed = parseFloat(this.value);
+                videoPlayer.playbackRate = speed;
+            }
+        });
+
+        // Generate video button functionality
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            // Show loading animation
+            this.classList.add('loading');
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating...';
+            
+            // Simulate video generation (3 second delay)
+            setTimeout(function() {
+                // Update button state
+                const generateBtn = document.getElementById('generate-btn');
+                generateBtn.classList.remove('loading');
+                generateBtn.innerHTML = '<i class="fas fa-play-circle mr-2"></i> Generate Video';
+                
+                // Replace placeholder with video
+                const videoPlaceholder = document.querySelector('.video-placeholder');
+                videoPlaceholder.innerHTML = `
+                    <video id="video-player" class="w-full h-full object-cover" controls autoplay>
+                        <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+                
+                // Show flowchart content
+                const flowchartView = document.getElementById('flowchart-view');
+                flowchartView.innerHTML = `
+                    <div class="w-full h-full flex flex-col items-center justify-center p-4">
+                        <div class="bg-indigo-800 p-3 rounded-lg mb-4 text-center w-48 shadow-lg hover:bg-indigo-700 transition-colors duration-300">
+                            <p class="font-bold">Start</p>
+                        </div>
+                        <i class="fas fa-arrow-down text-indigo-400 my-2"></i>
+                        <div class="bg-gray-700 p-3 rounded-lg mb-4 text-center w-64 shadow-md hover:bg-gray-600 transition-colors duration-300">
+                            <p>Introduction to Topic</p>
+                        </div>
+                        <i class="fas fa-arrow-down text-indigo-400 my-2"></i>
+                        <div class="bg-gray-700 p-3 rounded-lg mb-4 text-center w-64 shadow-md hover:bg-gray-600 transition-colors duration-300">
+                            <p>Key Concept 1</p>
+                        </div>
+                        <i class="fas fa-arrow-down text-indigo-400 my-2"></i>
+                        <div class="bg-gray-700 p-3 rounded-lg mb-4 text-center w-64 shadow-md hover:bg-gray-600 transition-colors duration-300">
+                            <p>Key Concept 2</p>
+                        </div>
+                        <i class="fas fa-arrow-down text-indigo-400 my-2"></i>
+                        <div class="bg-indigo-800 p-3 rounded-lg text-center w-48 shadow-lg hover:bg-indigo-700 transition-colors duration-300">
+                            <p class="font-bold">End</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Update notes view
+                const notesView = document.getElementById('notes-view');
+                notesView.innerHTML = `
+                    <div class="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors duration-300 shadow-md transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Introduction</h3>
+                        <p class="text-sm text-gray-300">Overview of the main topic and its relevance in the current landscape.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors duration-300 shadow-md transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Core Concepts</h3>
+                        <p class="text-sm text-gray-300">Explanation of the fundamental principles and building blocks.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors duration-300 shadow-md transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Practical Applications</h3>
+                        <p class="text-sm text-gray-300">Real-world examples and use cases demonstrating implementation.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors duration-300 shadow-md transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Advanced Techniques</h3>
+                        <p class="text-sm text-gray-300">Deeper exploration of specialized methods and optimization strategies.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors duration-300 shadow-md transform hover:translate-y-[-2px] transition-transform duration-300">
+                        <h3 class="font-bold text-indigo-400">Summary</h3>
+                        <p class="text-sm text-gray-300">Recap of key points and suggestions for further learning.</p>
+                    </div>
+                `;
+                
+                // Show the quiz button
+                document.getElementById('quiz-section').classList.remove('hidden');
+                
+            }, 3000);
+        });
+
+        // PDF upload functionality
+        document.getElementById('pdf-upload').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                const uploadContainer = document.querySelector('.upload-container');
+                uploadContainer.innerHTML = `
+                    <i class="fas fa-check-circle text-4xl mb-3 text-green-400"></i>
+                    <p class="mb-1">${fileName} uploaded</p>
+                    <p class="text-xs text-gray-400 mb-3">File uploaded successfully</p>
+                    <button id="generate-from-pdf" class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 shadow-lg">
+                        <i class="fas fa-magic mr-2"></i> Generate Video
+                    </button>
+                `;
+                
+                // Add event listener to the new button
+                document.getElementById('generate-from-pdf').addEventListener('click', function() {
+                    // Trigger the Generate Video button
+                    document.getElementById('generate-btn').click();
+                });
+            }
+        });
+
+        // Enable panel resizing functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const panels = document.querySelectorAll('.resize-x');
+            panels.forEach(panel => {
+                // Create resize handle if it doesn't exist
+                if (!panel.querySelector('.resize-handle-x')) {
+                    const handle = document.createElement('div');
+                    handle.className = 'resize-handle-x';
+                    panel.appendChild(handle);
+                }
+            });
+        });
+    </script>
+    
+    <script src="resize.js"></script>
+</body>
+</html> 
