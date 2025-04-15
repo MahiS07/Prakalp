@@ -173,7 +173,12 @@
 
         <!-- Right Panel (Output Section) -->
         <div class="w-[25%] min-w-[300px] bg-[#0A0A0A] h-full p-4 shadow-lg flex flex-col resize-x overflow-y-auto custom-scrollbar">
-            <h2 class="text-lg font-bold mb-4 text-indigo-300">Output</h2>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-indigo-300">Output</h2>
+                <button class="bg-indigo-600 px-2 py-1 rounded-lg hover:bg-indigo-700 transition-colors duration-300 text-xs">
+                    <i class="fas fa-download mr-1 text-xs"></i> Export
+                </button>
+            </div>
             
             <div class="flex mb-3 border-b border-[#151515] pb-3">
                 <button id="flowchart-btn" class="flex-1 bg-indigo-600 py-1.5 rounded-lg mr-2 hover:bg-indigo-700 transition-colors duration-300 text-xs">
