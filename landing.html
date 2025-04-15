@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn - Your Learning, Powered by AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#000000] text-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-[#0A0A0A] px-5 py-3 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">DeepLearn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+        <div>
+            <button class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-user-circle mr-2"></i>
+                Sign In
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="container mx-auto px-6 pt-20 pb-20">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Your Learning, <span class="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Powered by AI</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                Built for students. Backed by AI. Designed for results.
+            </p>
+            <a href="index.html" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 transition-colors duration-300 shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-1">
+                <i class="fas fa-rocket mr-2"></i> Get Started
+            </a>
+        </div>
+
+        <!-- Sample Content Section -->
+        <div class="bg-[#111111] rounded-xl p-8 mb-16 max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold mb-6 text-center">See DeepLearn in Action</h2>
+            
+            <!-- Sample Prompt -->
+            <div class="mb-8">
+                <h3 class="text-lg font-bold mb-3">Sample Prompt:</h3>
+                <div class="bg-[#151515] rounded-lg p-4 text-gray-300">
+                    "Explain the concept of Neural Networks in Machine Learning with a flowchart and generate a 5-minute video explanation."
+                </div>
+            </div>
+
+            <!-- Sample Video -->
+            <div class="aspect-video bg-[#151515] rounded-lg flex items-center justify-center relative group max-w-2xl mx-auto">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i class="fas fa-play-circle text-4xl text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300"></i>
+                </div>
+                <div class="absolute bottom-4 right-4 bg-black bg-opacity-50 px-3 py-1 rounded-lg text-sm">
+                    Sample Video
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Key Features</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                <!-- Flowchart Card -->
+                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
+                        <i class="fas fa-project-diagram text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">Smart Flowcharts</h3>
+                    <p class="text-gray-400 text-sm">Visualize complex concepts with AI-generated flowcharts.</p>
+                </div>
+
+                <!-- Short Notes Card -->
+                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
+                        <i class="fas fa-sticky-note text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">Concise Notes</h3>
+                    <p class="text-gray-400 text-sm">Get AI-powered summaries for quick revision.</p>
+                </div>
+
+                <!-- AI Video Card -->
+                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
+                        <i class="fas fa-video text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">AI Video Generation</h3>
+                    <p class="text-gray-400 text-sm">Transform study materials into video lessons.</p>
+                </div>
+
+                <!-- Quizzes Card -->
+                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
+                        <i class="fas fa-question-circle text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">Smart Quizzes</h3>
+                    <p class="text-gray-400 text-sm">Test knowledge with AI-generated quizzes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Suggestions -->
+        <div class="text-center">
+            <p class="text-sm text-gray-400 mb-3">Popular topics:</p>
+            <div class="flex flex-wrap justify-center gap-2">
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Machine Learning</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Python Basics</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Web Development</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Data Structures</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="landing.js"></script>
+</body>
+</html> 
