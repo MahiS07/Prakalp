@@ -69,41 +69,167 @@
         <!-- Feature Cards -->
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Key Features</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                <!-- Flowchart Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-project-diagram text-lg"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+                <!-- Smart Flowcharts Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-project-diagram text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">Smart Flowcharts / Mindmaps</h3>
+                            <p class="text-gray-400 text-sm text-center">Visualize complex concepts with AI-generated flowcharts.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">Smart Flowcharts / Mindmaps</h3>
+                            <p class="text-sm text-gray-300 mb-3">Automatically generate intuitive flowcharts or mindmaps from your notes or topics.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Breaks down complex topics into visual diagrams</li>
+                                    <li>Enhances memory retention through visual learning</li>
+                                    <li>Allows learners to see relationships between concepts clearly</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>A student uploads a lecture topic, and the tool instantly creates a logical flow of the subtopics and their dependencies.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Smart Flowcharts</h3>
-                    <p class="text-gray-400 text-sm">Visualize complex concepts with AI-generated flowcharts.</p>
                 </div>
 
-                <!-- Short Notes Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-sticky-note text-lg"></i>
+                <!-- Concise Notes Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-sticky-note text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">Concise Notes</h3>
+                            <p class="text-gray-400 text-sm text-center">Get AI-powered summaries for quick revision.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">Concise Notes (Short Notes)</h3>
+                            <p class="text-sm text-gray-300 mb-3">Summarize lengthy study material into short, clear, and organized notes using AI.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Saves time for revision</li>
+                                    <li>Ideal for quick last-minute preparations</li>
+                                    <li>Extracts key points, formulas, and takeaways from bulk material</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>Upload a PDF or enter a topic, and get bullet-point notes tailored for your academic level.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Concise Notes</h3>
-                    <p class="text-gray-400 text-sm">Get AI-powered summaries for quick revision.</p>
                 </div>
 
-                <!-- AI Video Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-video text-lg"></i>
+                <!-- Smart Quizzes Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-question-circle text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">Smart Quizzes</h3>
+                            <p class="text-gray-400 text-sm text-center">Test knowledge with AI-generated quizzes.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">Smart Quizzes</h3>
+                            <p class="text-sm text-gray-300 mb-3">Auto-generated quizzes to test comprehension and retention of the topic.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Immediate feedback helps identify weak areas</li>
+                                    <li>Adaptive difficulty based on performance</li>
+                                    <li>Can be MCQs, fill-in-the-blanks, or short answers</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>After watching a lesson or reading notes, the app generates a quiz to check understanding.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">AI Video Generation</h3>
-                    <p class="text-gray-400 text-sm">Transform study materials into video lessons.</p>
                 </div>
 
-                <!-- Quizzes Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-question-circle text-lg"></i>
+                <!-- AI-Powered Study Plan Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">AI-Powered Study Plan</h3>
+                            <p class="text-gray-400 text-sm text-center">Personalized study schedules tailored to your goals.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">AI-Powered Study Plan</h3>
+                            <p class="text-sm text-gray-300 mb-3">Creates a personalized and dynamic study timetable based on syllabus, goals, and time availability.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Keeps students on track with smart scheduling</li>
+                                    <li>Automatically adjusts as tasks are completed or missed</li>
+                                    <li>Balances study, revision, and breaks</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>A student enters their exam date and topics left, and gets a daily plan with reminders.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Smart Quizzes</h3>
-                    <p class="text-gray-400 text-sm">Test knowledge with AI-generated quizzes.</p>
+                </div>
+
+                <!-- AI Video Generation Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-video text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">AI Video Generation</h3>
+                            <p class="text-gray-400 text-sm text-center">Transform study materials into video lessons.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">AI Video Generation</h3>
+                            <p class="text-sm text-gray-300 mb-3">Transforms text-based content or topics into engaging video lectures with AI-generated voice and visuals.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Converts any topic into an explainer video</li>
+                                    <li>Great for visual/auditory learners</li>
+                                    <li>Can include animations or slides synced with narration</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>Enter a topic like "Photosynthesis" and get a 3–5 minute video explaining the process visually.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Reels Card -->
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-film text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-center">AI Reels</h3>
+                            <p class="text-gray-400 text-sm text-center">Short video snippets for quick learning.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col">
+                            <h3 class="text-lg font-bold mb-3 text-indigo-300">AI Reels (Short Video Snippets)</h3>
+                            <p class="text-sm text-gray-300 mb-3">Creates 30–60 second educational reels summarizing key concepts, perfect for quick revisions.</p>
+                            <div class="text-xs text-gray-400">
+                                <p class="font-bold mb-1">Benefits:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Optimized for mobile, TikTok/Instagram-style learning</li>
+                                    <li>Grabs attention and helps with microlearning</li>
+                                    <li>Useful for daily dose revisions or social sharing</li>
+                                </ul>
+                                <p class="font-bold mt-2 mb-1">Use Case:</p>
+                                <p>Get a 45-second reel explaining Newton's Laws, ideal for a quick refresh on-the-go.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
