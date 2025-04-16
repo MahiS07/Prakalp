@@ -1,0 +1,211 @@
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #1f2937;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Form Input Animations */
+input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+/* Button Hover Effects */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Logo Animation */
+@keyframes logoPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.h-12.w-12 {
+    animation: logoPulse 3s infinite;
+}
+
+/* Form Container Animation */
+.bg-\[\#0A0A0A\] {
+    transition: all 0.3s ease;
+}
+
+.bg-\[\#0A0A0A\]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Field Icons */
+.fa-user, .fa-envelope, .fa-lock {
+    transition: all 0.3s ease;
+}
+
+input:focus + .fa-user,
+input:focus + .fa-envelope,
+input:focus + .fa-lock {
+    color: #818cf8;
+}
+
+/* Terms Checkbox */
+input[type="checkbox"] {
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4f46e5;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    height: 4px;
+    margin-top: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+    background-color: #ef4444;
+    width: 25%;
+}
+
+.password-strength.medium {
+    background-color: #f59e0b;
+    width: 50%;
+}
+
+.password-strength.strong {
+    background-color: #10b981;
+    width: 75%;
+}
+
+.password-strength.very-strong {
+    background-color: #3b82f6;
+    width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .flex-col {
+        gap: 2rem;
+    }
+    
+    .text-3xl {
+        font-size: 2rem;
+    }
+    
+    .text-lg {
+        font-size: 1rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    animation: loading 1s linear infinite;
+}
+
+/* Error Message Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Success Message Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.success {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Password Requirements List */
+.password-requirements {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(17, 17, 17, 0.5);
+    border-radius: 0.5rem;
+}
+
+.password-requirements li {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.password-requirements li.valid {
+    color: #10b981;
+}
+
+.password-requirements li.valid::before {
+    content: '✓';
+    margin-right: 0.5rem;
+    color: #10b981;
+}
+
+.password-requirements li.invalid::before {
+    content: '✕';
+    margin-right: 0.5rem;
+    color: #ef4444;
+} 
