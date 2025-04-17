@@ -2,119 +2,98 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const rememberCheckbox = document.getElementById('remember');
+    const submitButton = loginForm.querySelector('button[type="submit"]');
 
-    // Add focus effects to input fields
-    [emailInput, passwordInput].forEach(input => {
-        input.addEventListener('focus', () => {
-            input.parentElement.classList.add('ring-2', 'ring-indigo-500');
-        });
+    // Add loading state to button
+    const setLoading = (isLoading) => {
+        submitButton.disabled = isLoading;
+        if (isLoading) {
+            submitButton.classList.add('loading');
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Signing in...';
+        } else {
+            submitButton.classList.remove('loading');
+            submitButton.innerHTML = '<span>Sign In</span><i class="fas fa-arrow-right"></i>';
+        }
+    };
 
-        input.addEventListener('blur', () => {
-            input.parentElement.classList.remove('ring-2', 'ring-indigo-500');
-        });
-    });
+    // Form validation
+    const validateForm = () => {
+        let isValid = true;
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
-    // Form submission handling
+        // Email validation
+        if (!email || !email.includes('@')) {
+            emailInput.classList.add('error');
+            isValid = false;
+        } else {
+            emailInput.classList.remove('error');
+        }
+
+        // Password validation
+        if (!password || password.length < 6) {
+            passwordInput.classList.add('error');
+            isValid = false;
+        } else {
+            passwordInput.classList.remove('error');
+        }
+
+        return isValid;
+    };
+
+    // Handle form submission
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Get form values
-        const email = emailInput.value.trim();
-        const password = passwordInput.value;
-        const remember = rememberCheckbox.checked;
-
-        // Basic validation
-        if (!email || !password) {
-            showError('Please fill in all fields');
+        if (!validateForm()) {
             return;
         }
 
-        // Email validation
-        if (!isValidEmail(email)) {
-            showError('Please enter a valid email address');
-            return;
-        }
-
-        // Show loading state
-        const submitButton = loginForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.innerHTML;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Signing in...';
-        submitButton.disabled = true;
+        setLoading(true);
 
         try {
-            // Simulate API call (replace with actual API call)
+            // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
-
-            // Show success message
-            showSuccess('Login successful! Redirecting...');
-
-            // Store remember me preference
-            if (remember) {
-                localStorage.setItem('rememberEmail', email);
-            } else {
-                localStorage.removeItem('rememberEmail');
-            }
-
-            // Redirect to dashboard (replace with actual redirect)
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1000);
-
+            
+            // Redirect to dashboard or handle success
+            window.location.href = 'index.html';
         } catch (error) {
-            showError('Invalid email or password');
+            console.error('Login failed:', error);
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'text-red-500 text-sm mt-2 text-center';
+            errorDiv.textContent = 'Login failed. Please check your credentials and try again.';
+            loginForm.appendChild(errorDiv);
+            
+            // Remove error message after 3 seconds
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 3000);
         } finally {
-            // Reset button state
-            submitButton.innerHTML = originalButtonText;
-            submitButton.disabled = false;
+            setLoading(false);
         }
     });
 
-    // Check for remembered email
-    const rememberedEmail = localStorage.getItem('rememberEmail');
-    if (rememberedEmail) {
-        emailInput.value = rememberedEmail;
-        rememberCheckbox.checked = true;
-    }
+    // Input field animations
+    [emailInput, passwordInput].forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('focused');
+        });
 
-    // Helper functions
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('focused');
+        });
+    });
 
-    function showError(message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error bg-red-500 text-white p-3 rounded-lg mb-4 text-center';
-        errorDiv.textContent = message;
-        
-        // Remove any existing error messages
-        const existingError = loginForm.querySelector('.error');
-        if (existingError) {
-            existingError.remove();
+    // Remember me checkbox animation
+    const rememberMeCheckbox = document.querySelector('input[type="checkbox"]');
+    rememberMeCheckbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            e.target.classList.add('checked');
+        } else {
+            e.target.classList.remove('checked');
         }
-        
-        loginForm.insertBefore(errorDiv, loginForm.firstChild);
-        
-        // Remove error message after 3 seconds
-        setTimeout(() => {
-            errorDiv.remove();
-        }, 3000);
-    }
-
-    function showSuccess(message) {
-        const successDiv = document.createElement('div');
-        successDiv.className = 'success bg-green-500 text-white p-3 rounded-lg mb-4 text-center';
-        successDiv.textContent = message;
-        
-        // Remove any existing success messages
-        const existingSuccess = loginForm.querySelector('.success');
-        if (existingSuccess) {
-            existingSuccess.remove();
-        }
-        
-        loginForm.insertBefore(successDiv, loginForm.firstChild);
-    }
+    });
 
     // Add smooth transitions for form elements
     const formElements = loginForm.querySelectorAll('input, button, a');
