@@ -175,9 +175,14 @@
         <div class="w-[25%] min-w-[300px] bg-[#0A0A0A] h-full p-4 shadow-lg flex flex-col resize-x overflow-y-auto custom-scrollbar">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-lg font-bold text-indigo-300">Output</h2>
-                <button class="bg-indigo-600 px-2 py-1 rounded-lg hover:bg-indigo-700 transition-colors duration-300 text-xs">
-                    <i class="fas fa-download mr-1 text-xs"></i> Export
-                </button>
+                <div class="flex items-center space-x-2">
+                    <button id="fullscreen-output-btn" class="bg-[#151515] px-2 py-1 rounded-lg hover:bg-[#1A1A1A] transition-colors duration-300 text-xs hidden">
+                        <i class="fas fa-expand mr-1 text-xs"></i> Fullscreen
+                    </button>
+                    <button class="bg-indigo-600 px-2 py-1 rounded-lg hover:bg-indigo-700 transition-colors duration-300 text-xs">
+                        <i class="fas fa-download mr-1 text-xs"></i> Export
+                    </button>
+                </div>
             </div>
             
             <div class="flex mb-3 border-b border-[#151515] pb-3">
@@ -244,6 +249,35 @@
             this.classList.add('bg-indigo-600');
             document.getElementById('flowchart-btn').classList.remove('bg-indigo-600');
             document.getElementById('flowchart-btn').classList.add('bg-[#151515]');
+        });
+
+        // Fullscreen functionality
+        const fullscreenBtn = document.getElementById('fullscreen-output-btn');
+        const outputContent = document.getElementById('output-content');
+        const generateBtn = document.getElementById('generate-btn');
+
+        generateBtn.addEventListener('click', function() {
+            // Show the fullscreen button after video generation
+            fullscreenBtn.classList.remove('hidden');
+        });
+
+        fullscreenBtn.addEventListener('click', function() {
+            if (!document.fullscreenElement) {
+                outputContent.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+                this.innerHTML = '<i class="fas fa-compress mr-1 text-xs"></i> Exit Fullscreen';
+            } else {
+                document.exitFullscreen();
+                this.innerHTML = '<i class="fas fa-expand mr-1 text-xs"></i> Fullscreen';
+            }
+        });
+
+        // Handle fullscreen change event
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand mr-1 text-xs"></i> Fullscreen';
+            }
         });
 
         // Quick suggestions functionality

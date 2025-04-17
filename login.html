@@ -59,11 +59,11 @@
                             <a href="#" class="text-sm text-indigo-400 hover:text-indigo-300 transition-colors duration-300">Forgot password?</a>
                         </div>
 
-                        <button type="submit" id="signInButton"
+                        <a href="index.html" type="submit"
                             class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center space-x-2">
                             <span>Sign In</span>
                             <i class="fas fa-arrow-right"></i>
-                        </button>
+                        </a>
 
                         <div class="text-center">
                             <p class="text-sm text-gray-400">
@@ -77,21 +77,5 @@
         </div>
     </div>
     <script src="login.js"></script>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            if (email && password) {
-                // If both fields are filled, redirect to index.html
-                window.location.href = 'index.html';
-            } else {
-                // If any field is empty, show an alert
-                alert('Please fill in both email and password fields');
-            }
-        });
-    </script>
 </body>
 </html> 
