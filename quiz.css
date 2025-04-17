@@ -1,0 +1,118 @@
+/* Custom styles for quiz page */
+
+/* Animation for option selection */
+.option-selected {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Correct answer animation */
+.correct-answer {
+    animation: correctPulse 0.5s ease-in-out;
+}
+
+@keyframes correctPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+/* Wrong answer animation */
+.wrong-answer {
+    animation: wrongPulse 0.5s ease-in-out;
+}
+
+@keyframes wrongPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Progress bar animation */
+#progress-bar {
+    transition: width 0.3s ease-in-out;
+}
+
+/* Results modal animation */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#results-modal.show {
+    display: flex;
+    animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+/* Custom radio button styling */
+.option-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #4B5563;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 0.75rem;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.option-radio:checked {
+    border-color: #6366F1;
+    background-color: #6366F1;
+}
+
+.option-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Option hover effect */
+.option-label:hover .option-radio {
+    border-color: #6366F1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .option-label {
+        padding: 0.75rem;
+    }
+} 
