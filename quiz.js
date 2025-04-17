@@ -8,7 +8,8 @@ const quizQuestions = [
             "A programming language",
             "A database management system"
         ],
-        correctAnswer: 1
+        correctAnswer: 1,
+        explanation: "Machine Learning is a subset of AI that focuses on developing systems that can learn from and make decisions based on data. It enables computers to improve their performance on a specific task through experience without being explicitly programmed."
     },
     {
         question: "Which of the following is a supervised learning algorithm?",
@@ -18,7 +19,8 @@ const quizQuestions = [
             "Principal Component Analysis",
             "Apriori algorithm"
         ],
-        correctAnswer: 1
+        correctAnswer: 1,
+        explanation: "Linear Regression is a supervised learning algorithm used for predicting a continuous outcome variable based on one or more predictor variables. It establishes a linear relationship between the input variables and the output variable."
     },
     {
         question: "What is the purpose of cross-validation in machine learning?",
@@ -28,7 +30,8 @@ const quizQuestions = [
             "To evaluate model performance on unseen data",
             "To speed up the training process"
         ],
-        correctAnswer: 2
+        correctAnswer: 2,
+        explanation: "Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample. It helps assess how the results of a statistical analysis will generalize to an independent data set, providing a more robust evaluation of model performance."
     },
     {
         question: "What is overfitting in machine learning?",
@@ -38,7 +41,8 @@ const quizQuestions = [
             "When a model takes too long to train",
             "When a model has too few parameters"
         ],
-        correctAnswer: 1
+        correctAnswer: 1,
+        explanation: "Overfitting occurs when a model learns the detail and noise in the training data to the extent that it negatively impacts the performance of the model on new data. The model becomes too complex and captures the noise instead of the underlying pattern."
     },
     {
         question: "Which of the following is NOT a type of neural network?",
@@ -48,7 +52,8 @@ const quizQuestions = [
             "Decision Tree Network",
             "Long Short-Term Memory (LSTM)"
         ],
-        correctAnswer: 2
+        correctAnswer: 2,
+        explanation: "Decision Tree is a supervised learning algorithm used for classification and regression, but it's not a type of neural network. Neural networks include architectures like CNN, RNN, and LSTM that are inspired by the human brain's structure and function."
     },
     {
         question: "What is the purpose of the activation function in a neural network?",
@@ -109,13 +114,10 @@ let userAnswers = new Array(quizQuestions.length).fill(null);
 const quizContainer = document.getElementById('quiz-container');
 const scoreDisplay = document.getElementById('score');
 const submitButton = document.getElementById('submit-btn');
-const resultsModal = document.getElementById('results-modal');
+const resultsSection = document.getElementById('results-section');
 const finalScore = document.getElementById('final-score');
 const scoreMessage = document.getElementById('score-message');
-const viewSolutionsBtn = document.getElementById('view-solutions-btn');
-const solutionsModal = document.getElementById('solutions-modal');
 const solutionsContainer = document.getElementById('solutions-container');
-const closeSolutionsBtn = document.getElementById('close-solutions-btn');
 
 // Initialize the quiz
 function initQuiz() {
@@ -180,8 +182,12 @@ function showResults() {
         scoreMessage.textContent = "Keep studying! You'll improve with practice!";
     }
     
-    resultsModal.classList.remove('hidden');
-    resultsModal.classList.add('show');
+    // Show results section and display solutions
+    resultsSection.classList.remove('hidden');
+    displaySolutions();
+    
+    // Scroll to results section
+    resultsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
 // Display solutions
@@ -227,47 +233,17 @@ function displaySolutions() {
                 </div>
                 <div class="mt-4 p-4 bg-[#151515] rounded-lg">
                     <p class="font-medium mb-1">Explanation:</p>
-                    <p class="text-gray-300">${getExplanation(index)}</p>
+                    <p class="text-gray-300">${question.explanation}</p>
                 </div>
             </div>
         `;
     });
     
     solutionsContainer.innerHTML = solutionsHtml;
-    solutionsModal.classList.remove('hidden');
-    solutionsModal.classList.add('show');
 }
 
-// Get explanation for each question
-function getExplanation(index) {
-    const explanations = [
-        "Machine Learning is a subset of AI that focuses on developing systems that can learn from and make decisions based on data. It enables computers to improve their performance on a specific task through experience without being explicitly programmed.",
-        "Linear Regression is a supervised learning algorithm used for predicting a continuous outcome variable based on one or more predictor variables. It establishes a linear relationship between the input variables and the output variable.",
-        "Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample. It helps assess how the results of a statistical analysis will generalize to an independent data set, providing a more robust evaluation of model performance.",
-        "Overfitting occurs when a model learns the detail and noise in the training data to the extent that it negatively impacts the performance of the model on new data. The model becomes too complex and captures the noise instead of the underlying pattern.",
-        "Decision Tree is a supervised learning algorithm used for classification and regression, but it's not a type of neural network. Neural networks include architectures like CNN, RNN, and LSTM that are inspired by the human brain's structure and function."
-    ];
-    
-    return explanations[index];
-}
-
-// Event listeners
-submitButton.addEventListener('click', () => {
-    if (userAnswers.includes(null)) {
-        alert('Please answer all questions before submitting.');
-        return;
-    }
-    showResults();
-});
-
-viewSolutionsBtn.addEventListener('click', () => {
-    displaySolutions();
-});
-
-closeSolutionsBtn.addEventListener('click', () => {
-    solutionsModal.classList.remove('show');
-    solutionsModal.classList.add('hidden');
-});
+// Event Listeners
+submitButton.addEventListener('click', showResults);
 
 // Initialize the quiz when the page loads
 document.addEventListener('DOMContentLoaded', initQuiz); 

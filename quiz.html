@@ -46,52 +46,39 @@
                     <i class="fas fa-check mr-2"></i> Submit Quiz
                 </button>
             </div>
+
+            <!-- Results Section (Hidden by default) -->
+            <div id="results-section" class="mt-8 hidden">
+                <div class="bg-[#111111] rounded-xl p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-trophy text-4xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">Quiz Completed!</h2>
+                        <p class="text-gray-400 mb-6">Here's how you did</p>
+                        
+                        <div class="bg-[#151515] rounded-lg p-4 mb-6">
+                            <p class="text-lg mb-1">Your Score</p>
+                            <p class="text-4xl font-bold text-indigo-400" id="final-score">0/10</p>
+                            <p class="text-sm text-gray-400 mt-2" id="score-message">Keep learning to improve your knowledge!</p>
+                        </div>
+                    </div>
+
+                    <!-- Solutions Section -->
+                    <div id="solutions-container" class="space-y-6">
+                        <!-- Solutions will be loaded here by JavaScript -->
+                    </div>
+
+                    <!-- Return to Home Button -->
+                    <div class="flex justify-center mt-8">
+                        <a href="index.html" class="inline-block bg-[#151515] text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-[#1a1a1a] transition-colors duration-300 shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-1">
+                            <i class="fas fa-home mr-2"></i> Return to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-
-    <!-- Results Modal (Hidden by default) -->
-    <div id="results-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
-        <div class="bg-[#111111] rounded-xl p-8 max-w-md w-full mx-4">
-            <div class="text-center">
-                <div class="w-24 h-24 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-trophy text-4xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold mb-2">Quiz Completed!</h2>
-                <p class="text-gray-400 mb-6">You've answered all the questions</p>
-                
-                <div class="bg-[#151515] rounded-lg p-4 mb-6">
-                    <p class="text-lg mb-1">Your Score</p>
-                    <p class="text-4xl font-bold text-indigo-400" id="final-score">0/10</p>
-                    <p class="text-sm text-gray-400 mt-2" id="score-message">Keep learning to improve your knowledge!</p>
-                </div>
-                
-                <div class="flex flex-col space-y-3 mb-6">
-                    <button id="view-solutions-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 transition-colors duration-300 shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-1">
-                        <i class="fas fa-lightbulb mr-2"></i> View Solutions
-                    </button>
-                    <a href="index.html" class="inline-block bg-[#151515] text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-[#1a1a1a] transition-colors duration-300 shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-1">
-                        <i class="fas fa-home mr-2"></i> Return to Home
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Solutions Modal (Hidden by default) -->
-    <div id="solutions-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden overflow-y-auto py-8">
-        <div class="bg-[#111111] rounded-xl p-8 max-w-3xl w-full mx-4 my-8">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">Quiz Solutions</h2>
-                <button id="close-solutions-btn" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            
-            <div id="solutions-container" class="space-y-6">
-                <!-- Solutions will be loaded here by JavaScript -->
-            </div>
-        </div>
-    </div>
 
     <script src="quiz.js"></script>
 </body>
