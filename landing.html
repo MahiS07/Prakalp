@@ -67,43 +67,139 @@
         </div>
 
         <!-- Feature Cards -->
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-8 md:px-12 lg:px-16">
             <h2 class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Key Features</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                <!-- Flowchart Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-project-diagram text-lg"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+                <!-- Smart Flowcharts Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-project-diagram text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">Smart Mindmaps</h3>
+                            <p class="text-gray-400 text-base text-center">Visualize complex concepts with AI-generated flowcharts.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">Smart Flowcharts / Mindmaps</h3>
+                            <p class="text-base text-gray-300 mb-3">An AI tool that converts study content into visual diagrams to simplify understanding.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Highlights relationships between topics for better clarity.</p>
+                                <p>Great for revision and brainstorming sessions.</p>
+                                <p>Helps organize large chunks of information visually.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Smart Flowcharts</h3>
-                    <p class="text-gray-400 text-sm">Visualize complex concepts with AI-generated flowcharts.</p>
                 </div>
 
-                <!-- Short Notes Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-sticky-note text-lg"></i>
+                <!-- Concise Notes Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-sticky-note text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">Concise Notes</h3>
+                            <p class="text-gray-400 text-base text-center">Get AI-powered summaries for quick revision.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">Concise Notes</h3>
+                            <p class="text-base text-gray-300 mb-3">Summarizes lengthy study material into short, focused notes for fast learning.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Extracts key points, formulas, and concepts.</p>
+                                <p>Easy to review before exams or quizzes.</p>
+                                <p>Saves hours of manual note-making.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Concise Notes</h3>
-                    <p class="text-gray-400 text-sm">Get AI-powered summaries for quick revision.</p>
                 </div>
 
-                <!-- AI Video Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-video text-lg"></i>
+                <!-- Smart Quizzes Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-question-circle text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">Smart Quizzes</h3>
+                            <p class="text-gray-400 text-base text-center">Test knowledge with AI-generated quizzes.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">Smart Quizzes</h3>
+                            <p class="text-base text-gray-300 mb-3">Automatically generated quizzes to assess how well a student has understood a topic.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Includes MCQs, true/false, and short answers.</p>
+                                <p>Adapts difficulty based on your responses.</p>
+                                <p>Provides instant feedback for improvement.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">AI Video Generation</h3>
-                    <p class="text-gray-400 text-sm">Transform study materials into video lessons.</p>
                 </div>
 
-                <!-- Quizzes Card -->
-                <div class="bg-[#111111] rounded-xl p-4 hover:bg-[#151515] transition-colors duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-                    <div class="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
-                        <i class="fas fa-question-circle text-lg"></i>
+                <!-- AI-Powered Study Plan Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-calendar-alt text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">AI-Powered Study Plan</h3>
+                            <p class="text-gray-400 text-base text-center">Personalized study schedules tailored to your goals.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">AI-Powered Study Plan</h3>
+                            <p class="text-base text-gray-300 mb-3">Creates a customized study schedule based on your syllabus, time, and goals.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Adjusts dynamically as you complete or miss tasks.</p>
+                                <p>Balances subjects, breaks, and revision sessions.</p>
+                                <p>Keeps learners consistent and exam-ready.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold mb-1">Smart Quizzes</h3>
-                    <p class="text-gray-400 text-sm">Test knowledge with AI-generated quizzes.</p>
+                </div>
+
+                <!-- AI Video Generation Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-video text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">AI Video Generation</h3>
+                            <p class="text-gray-400 text-base text-center">Transform study materials into video lessons.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">AI Video Generation</h3>
+                            <p class="text-base text-gray-300 mb-3">Transforms any topic into an educational video with narration and visuals.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Makes content more engaging and easier to absorb.</p>
+                                <p>Ideal for visual and auditory learners.</p>
+                                <p>Auto-generates scripts, voice, and animations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Reels Card -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-[#111111] rounded-xl p-6 flex flex-col items-center justify-center">
+                            <div class="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-film text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-center">AI Reels</h3>
+                            <p class="text-gray-400 text-base text-center">Short video snippets for quick learning.</p>
+                        </div>
+                        <div class="flip-card-back bg-[#151515] rounded-xl p-6 flex flex-col overflow-hidden">
+                            <h3 class="text-2xl font-bold mb-3 text-indigo-300">AI Reels</h3>
+                            <p class="text-base text-gray-300 mb-3">Short-form educational videos (30–60 seconds) for bite-sized learning.</p>
+                            <div class="text-sm text-gray-400 space-y-2">
+                                <p>Quick recaps of important topics or concepts.</p>
+                                <p>Mobile-first format for on-the-go learners.</p>
+                                <p>Perfect for social sharing and microlearning.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
