@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn - Subscription Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="subscription.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] min-h-screen text-white">
+    <!-- Header -->
+    <header class="bg-[#0A0A0A]/80 backdrop-blur-md px-5 py-3 flex items-center justify-between shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-3">
+            <div class="h-12 w-12 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg">
+                <i class="fas fa-brain text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">DeepLearn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-2 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 flex items-center shadow-lg">
+                <i class="fas fa-home mr-2"></i>
+                Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 px-4 pb-16">
+        <div class="max-w-7xl mx-auto">
+            <!-- Hero Section -->
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Choose Your Learning Path</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg">Select the perfect plan that matches your learning goals and budget. All plans include access to our comprehensive learning platform.</p>
+            </div>
+
+            <!-- Pricing Plans -->
+            <div class="pricing-section">
+                <div class="pricing-container">
+                    <!-- Free Plan -->
+                    <div class="pricing-card free-plan">
+                        <div class="plan-badge">Free</div>
+                        <div class="pricing-header">
+                            <h3 class="text-2xl font-bold mb-2">Free Plan</h3>
+                            <div class="price mb-4">
+                                <span class="text-4xl font-bold">₹0</span>
+                                <span class="text-gray-400">/month</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6">Perfect for getting started</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-video text-indigo-400" data-tooltip="Video Content"></i> 3 explainer videos/month</li>
+                            <li><i class="fas fa-puzzle-piece text-indigo-400" data-tooltip="Interactive Quizzes"></i> Quiz access</li>
+                            <li><i class="fas fa-film text-indigo-400" data-tooltip="Reels Content"></i> Reels-style recap videos</li>
+                            <li><i class="fas fa-calendar text-indigo-400" data-tooltip="Study Planning"></i> Study planner access</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn" data-plan="free">Get Started</button>
+                        </div>
+                    </div>
+
+                    <!-- Starter Plan -->
+                    <div class="pricing-card starter-plan featured">
+                        <div class="plan-badge popular">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3 class="text-2xl font-bold mb-2">Starter Plan</h3>
+                            <div class="price mb-4">
+                                <span class="text-4xl font-bold">₹149</span>
+                                <span class="text-gray-400">/month</span>
+                            </div>
+                            <div class="discount-badge">Save ₹31</div>
+                            <p class="text-gray-400 text-sm mb-6">Great for regular learners</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-video text-indigo-400" data-tooltip="Video Content"></i> 15 explainer videos/month</li>
+                            <li><i class="fas fa-puzzle-piece text-indigo-400" data-tooltip="Interactive Quizzes"></i> Quiz + Recap reels</li>
+                            <li><i class="fas fa-project-diagram text-indigo-400" data-tooltip="Visual Learning"></i> Flowchart + Notes</li>
+                            <li><i class="fas fa-calendar text-indigo-400" data-tooltip="Study Planning"></i> Study planner access</li>
+                            <li><i class="fas fa-headset text-indigo-400" data-tooltip="Support"></i> Priority support</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn featured" data-plan="starter">Choose Plan</button>
+                        </div>
+                    </div>
+
+                    <!-- Standard Plan -->
+                    <div class="pricing-card standard-plan">
+                        <div class="plan-badge">Standard</div>
+                        <div class="pricing-header">
+                            <h3 class="text-2xl font-bold mb-2">Standard Plan</h3>
+                            <div class="price mb-4">
+                                <span class="text-4xl font-bold">₹289</span>
+                                <span class="text-gray-400">/month</span>
+                            </div>
+                            <div class="discount-badge">Save ₹71</div>
+                            <p class="text-gray-400 text-sm mb-6">For serious learners</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-video text-indigo-400" data-tooltip="Video Content"></i> 30 explainer videos/month</li>
+                            <li><i class="fas fa-puzzle-piece text-indigo-400" data-tooltip="Interactive Quizzes"></i> Quiz + Reels</li>
+                            <li><i class="fas fa-project-diagram text-indigo-400" data-tooltip="Visual Learning"></i> Flowcharts + Notes</li>
+                            <li><i class="fas fa-calendar text-indigo-400" data-tooltip="Study Planning"></i> Smart study planner</li>
+                            <li><i class="fas fa-rocket text-indigo-400" data-tooltip="Early Access"></i> Early feature access</li>
+                            <li><i class="fas fa-headset text-indigo-400" data-tooltip="Support"></i> Priority support</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn" data-plan="standard">Choose Plan</button>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="pricing-card pro-plan">
+                        <div class="plan-badge">Pro</div>
+                        <div class="pricing-header">
+                            <h3 class="text-2xl font-bold mb-2">Pro Plan</h3>
+                            <div class="price mb-4">
+                                <span class="text-4xl font-bold">₹499</span>
+                                <span class="text-gray-400">/month</span>
+                            </div>
+                            <div class="discount-badge">Save ₹221</div>
+                            <p class="text-gray-400 text-sm mb-6">For power users</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-video text-indigo-400" data-tooltip="Video Content"></i> 60 explainer videos/month</li>
+                            <li><i class="fas fa-puzzle-piece text-indigo-400" data-tooltip="Interactive Quizzes"></i> All Standard features</li>
+                            <li><i class="fas fa-gift text-indigo-400" data-tooltip="Sharing"></i> Sharing credits</li>
+                            <li><i class="fas fa-headset text-indigo-400" data-tooltip="Support"></i> Dedicated support</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn" data-plan="pro">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Frequently Asked Questions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="faq-item">
+                        <h4 class="text-lg font-semibold mb-2 flex items-center justify-between cursor-pointer">
+                            Can I switch plans later?
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </h4>
+                        <p class="text-gray-300">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="text-lg font-semibold mb-2 flex items-center justify-between cursor-pointer">
+                            Is there a contract?
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </h4>
+                        <p class="text-gray-300">No, all plans are month-to-month with no long-term commitment. You can cancel anytime.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="text-lg font-semibold mb-2 flex items-center justify-between cursor-pointer">
+                            What payment methods do you accept?
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </h4>
+                        <p class="text-gray-300">We accept all major credit cards, UPI, and net banking. All payments are secure and encrypted.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="text-lg font-semibold mb-2 flex items-center justify-between cursor-pointer">
+                            Do you offer refunds?
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </h4>
+                        <p class="text-gray-300">Yes, we offer a 7-day money-back guarantee if you're not satisfied with our service.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="mt-24 text-center">
+                <h3 class="text-2xl font-bold mb-4">Need Help Choosing?</h3>
+                <p class="text-gray-300 mb-6">Our team is here to help you find the perfect plan for your needs.</p>
+                <a href="mailto:support@deeplearn.com" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A0A0A]/80 backdrop-blur-md py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2024 DeepLearn. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="subscription.js"></script>
+</body>
+</html> 
