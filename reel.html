@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn - Educational Reels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="reel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#000000] text-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-[#0A0A0A] px-5 py-3 flex items-center justify-between shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">DeepLearn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+        <div>
+            <a href="index.html" class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-home mr-2"></i>
+                Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Reels Container -->
+    <div class="reels-container">
+        <!-- Reel 1 - Physics -->
+        <div class="reel-item active">
+            <div class="video-container">
+                <video src="https://link.storjshare.io/raw/jvonzbb6f67ziv3xhfvlhpiqt7bq/deeplearn/AccelerationVelocityGraph.mp4" 
+                       class="w-full h-full object-contain" 
+                       loop 
+                       muted 
+                       autoplay></video>
+            </div>
+            <div class="reel-content">
+                <div class="chapter-info">
+                    <h2 class="text-2xl font-bold mb-2">Chapter 1: Motion and Graphs</h2>
+                    <div class="topics-list">
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Velocity-Time Graphs</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Acceleration Analysis</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Graph Interpretation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reel 2 - Chemistry -->
+        <div class="reel-item">
+            <div class="video-container">
+                <video src="https://link.storjshare.io/raw/jxzwau5gkgygeyef3pbyqm66gx5a/deeplearn/MoleConceptVisualization_temp.mp4" 
+                       class="w-full h-full object-contain" 
+                       loop 
+                       muted></video>
+            </div>
+            <div class="reel-content">
+                <div class="chapter-info">
+                    <h2 class="text-2xl font-bold mb-2">Chapter 2: Mole Concept</h2>
+                    <div class="topics-list">
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Avogadro's Number</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Molar Mass</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Chemical Calculations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reel 3 - Mathematics -->
+        <div class="reel-item">
+            <div class="video-container">
+                <video src="https://link.storjshare.io/raw/ju74nsasj5acufosa2sljaf3ixva/deeplearn/DifferentiationVisualization.mp4" 
+                       class="w-full h-full object-contain" 
+                       loop 
+                       muted></video>
+            </div>
+            <div class="reel-content">
+                <div class="chapter-info">
+                    <h2 class="text-2xl font-bold mb-2">Chapter 3: Calculus Basics</h2>
+                    <div class="topics-list">
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Differentiation</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Rate of Change</span>
+                        </div>
+                        <div class="topic-item">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Tangent Lines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button id="prev-reel" class="nav-btn">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button id="next-reel" class="nav-btn">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <script src="reel.js"></script>
+</body>
+</html> 
