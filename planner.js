@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const fileInput = document.getElementById('timetable-upload');
     const freeSlotsInput = document.getElementById('free-slots');
+    const decreaseSlotsBtn = document.getElementById('decrease-slots');
+    const increaseSlotsBtn = document.getElementById('increase-slots');
     const timeSlotsContainer = document.getElementById('time-slots-container');
     const generateButton = document.getElementById('generate-plan');
     const downloadButton = document.getElementById('download-plan');
@@ -33,11 +35,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+            // Set initial difficulty rating to neutral
+            difficultyRatings[subject] = 'neutral';
         });
     }
 
-    // Handle free slots input
-    freeSlotsInput.addEventListener('change', () => {
+    // Handle slot counter buttons
+    decreaseSlotsBtn.addEventListener('click', () => {
+        const currentValue = parseInt(freeSlotsInput.value);
+        if (currentValue > 0) {
+            freeSlotsInput.value = currentValue - 1;
+            updateTimeSlots();
+        }
+    });
+
+    increaseSlotsBtn.addEventListener('click', () => {
+        const currentValue = parseInt(freeSlotsInput.value);
+        if (currentValue < 5) {
+            freeSlotsInput.value = currentValue + 1;
+            updateTimeSlots();
+        }
+    });
+
+    // Update time slots based on input value
+    function updateTimeSlots() {
         const numSlots = parseInt(freeSlotsInput.value);
         timeSlotsContainer.innerHTML = '';
         timeSlots = [];
@@ -60,7 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             timeSlotsContainer.appendChild(slotDiv);
         }
-    });
+    }
+
+    // Initialize time slots
+    updateTimeSlots();
 
     // File upload handler
     fileInput.addEventListener('change', async (e) => {
