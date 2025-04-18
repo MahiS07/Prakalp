@@ -72,7 +72,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <!-- Physics Video -->
                     <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group">
+                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
                             <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Physics">
                                 <source src="https://link.storjshare.io/raw/jvonzbb6f67ziv3xhfvlhpiqt7bq/deeplearn/AccelerationVelocityGraph.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -89,7 +89,7 @@
                     
                     <!-- Chemistry Video -->
                     <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group">
+                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
                             <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Chemistry">
                                 <source src="https://link.storjshare.io/raw/jxzwau5gkgygeyef3pbyqm66gx5a/deeplearn/MoleConceptVisualization_temp.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -106,7 +106,7 @@
                     
                     <!-- Mathematics Video -->
                     <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group">
+                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
                             <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Mathematics">
                                 <source src="https://link.storjshare.io/raw/ju74nsasj5acufosa2sljaf3ixva/deeplearn/DifferentiationVisualization.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -277,5 +277,23 @@
     </main>
 
     <script src="landing.js"></script>
+    <script>
+        function playVideo(element) {
+            const video = element.querySelector('video');
+            if (video.paused) {
+                // Pause all other videos first
+                document.querySelectorAll('video').forEach(v => {
+                    if (v !== video) v.pause();
+                });
+                video.play();
+                // Hide the play button overlay
+                element.querySelector('.absolute').style.opacity = '0';
+            } else {
+                video.pause();
+                // Show the play button overlay
+                element.querySelector('.absolute').style.opacity = '1';
+            }
+        }
+    </script>
 </body>
 </html> 
