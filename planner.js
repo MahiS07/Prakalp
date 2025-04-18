@@ -267,43 +267,189 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display the generated study plan
     function displayStudyPlan(studyPlan) {
         studyPlanSection.classList.remove('hidden');
-        const timetableGrid = document.createElement('div');
-        timetableGrid.className = 'timetable-grid';
+        const calendarGrid = document.getElementById('calendar-grid');
+        calendarGrid.innerHTML = '';
 
-        // Get dates for the next 7 days
-        const dates = getNextSevenDays();
+        // Get current date and set up month view
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+        
+        // Update month header
+        document.getElementById('current-month').textContent = 
+            currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-        // Create schedule for each date
-        dates.forEach(date => {
+        // Get first day of month and last day of month
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+        
+        // Get starting day of week (0-6, where 0 is Sunday)
+        let startingDay = firstDay.getDay();
+        
+        // Add empty cells for days before the first of the month
+        for (let i = 0; i < startingDay; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'h-40 bg-[#151515] rounded-lg';
+            calendarGrid.appendChild(emptyCell);
+        }
+
+        // Add cells for each day of the month
+        for (let day = 1; day <= lastDay.getDate(); day++) {
+            const date = new Date(currentYear, currentMonth, day);
             const dayDiv = document.createElement('div');
-            dayDiv.className = 'timetable-day';
-            dayDiv.innerHTML = `<h3 class="text-lg font-semibold mb-4">${formatDate(date)}</h3>`;
+            dayDiv.className = 'calendar-day bg-[#151515] rounded-lg p-3 min-h-[10rem] cursor-pointer hover:bg-[#1a1a1a] transition-colors';
+            
+            // Get subjects for this day
+            const subjectsForDay = getSubjectsForDay(studyPlan, date);
+            
+            dayDiv.innerHTML = `
+                <div class="text-center mb-2">
+                    <div class="text-lg font-bold">${day}</div>
+                </div>
+                <div class="space-y-2">
+                    ${subjectsForDay.map(subject => `
+                        <div class="subject-item flex items-center bg-[#1a1a1a] p-2 rounded text-sm cursor-pointer hover:bg-[#222222] transition-colors" 
+                             data-subject="${subject.name}" 
+                             data-date="${formatDate(date)}"
+                             data-time="${subject.timeSlot}"
+                             data-duration="${subject.hours} hours"
+                             data-difficulty="${subject.difficulty}">
+                            <div class="w-2 h-2 rounded-full ${getDifficultyColor(subject.difficulty)} mr-2"></div>
+                            <span class="truncate">${subject.name}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
 
-            // Add time slots for the day
-            timeSlots.forEach((slot, index) => {
-                const slotDiv = document.createElement('div');
-                slotDiv.className = 'timetable-slot';
-                slotDiv.innerHTML = `
-                    <div class="font-medium mb-2">Time Slot ${index + 1}: ${slot.startTime} - ${slot.endTime}</div>
-                `;
-
-                // Add subjects for this time slot
-                const subjectsForSlot = distributeSubjectsForSlot(studyPlan, slot);
-                subjectsForSlot.forEach(subject => {
-                    const subjectDiv = document.createElement('div');
-                    subjectDiv.className = 'ml-4 text-indigo-400';
-                    subjectDiv.textContent = `${subject.name} - ${subject.hours} hours`;
-                    slotDiv.appendChild(subjectDiv);
+            // Add click handlers for subject items
+            dayDiv.querySelectorAll('.subject-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showSubjectDetails(item.dataset);
                 });
-
-                dayDiv.appendChild(slotDiv);
             });
 
-            timetableGrid.appendChild(dayDiv);
+            calendarGrid.appendChild(dayDiv);
+        }
+
+        // Add month navigation handlers
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            displayStudyPlan(studyPlan);
         });
 
-        studyPlanSection.querySelector('#timetable').innerHTML = '';
-        studyPlanSection.querySelector('#timetable').appendChild(timetableGrid);
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            displayStudyPlan(studyPlan);
+        });
+    }
+
+    // Get subjects for a specific day with dummy time slots
+    function getSubjectsForDay(studyPlan, date) {
+        const subjects = [];
+        const timeSlots = [
+            { start: '09:00', end: '11:00' },
+            { start: '14:00', end: '16:00' },
+            { start: '18:00', end: '20:00' }
+        ];
+
+        const remainingStudyPlan = { ...studyPlan };
+        const availableSlots = [...timeSlots];
+
+        while (availableSlots.length > 0 && Object.keys(remainingStudyPlan).length > 0) {
+            const subjectNames = Object.keys(remainingStudyPlan);
+            const subject = subjectNames[Math.floor(Math.random() * subjectNames.length)];
+            const slot = availableSlots.shift();
+
+            subjects.push({
+                name: subject,
+                hours: 2,
+                difficulty: difficultyRatings[subject],
+                timeSlot: `${slot.start} - ${slot.end}`
+            });
+
+            remainingStudyPlan[subject] -= 2;
+            if (remainingStudyPlan[subject] <= 0) {
+                delete remainingStudyPlan[subject];
+            }
+        }
+
+        return subjects;
+    }
+
+    // Show subject details modal
+    function showSubjectDetails(data) {
+        const modal = document.getElementById('subject-modal');
+        const modalSubject = document.getElementById('modal-subject');
+        const modalContent = document.getElementById('subject-modal-content');
+
+        modalSubject.textContent = data.subject;
+        modalContent.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-[#151515] rounded-lg p-4">
+                    <h4 class="text-lg font-semibold mb-2">Schedule Details</h4>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Date:</span>
+                            <span>${data.date}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Time Slot:</span>
+                            <span>${data.time}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Duration:</span>
+                            <span>${data.duration}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Difficulty:</span>
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 rounded-full ${getDifficultyColor(data.difficulty)} mr-2"></span>
+                                ${getDifficultyText(data.difficulty)}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#151515] rounded-lg p-4">
+                    <h4 class="text-lg font-semibold mb-2">Study Tips</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Review previous day's notes before starting</li>
+                        <li>Take short breaks every 45 minutes</li>
+                        <li>Practice with sample questions</li>
+                        <li>Make summary notes after each session</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Add close modal handler
+        document.getElementById('close-subject-modal').addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+    }
+
+    // Get difficulty text
+    function getDifficultyText(difficulty) {
+        switch(difficulty) {
+            case 'easy': return 'Easy';
+            case 'neutral': return 'Neutral';
+            case 'hard': return 'Hard';
+            default: return '';
+        }
+    }
+
+    // Get color based on difficulty
+    function getDifficultyColor(difficulty) {
+        switch(difficulty) {
+            case 'easy': return 'bg-green-500';
+            case 'neutral': return 'bg-yellow-500';
+            case 'hard': return 'bg-red-500';
+            default: return 'bg-gray-500';
+        }
     }
 
     // Update progress bar

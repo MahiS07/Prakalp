@@ -203,8 +203,48 @@
                         <i class="fas fa-download mr-2"></i> Download PDF
                     </button>
                 </div>
-                <div id="timetable" class="overflow-x-auto">
-                    <!-- Timetable will be generated here -->
+                
+                <!-- Calendar View -->
+                <div class="calendar-container mb-8">
+                    <div class="calendar-header flex justify-between items-center mb-4">
+                        <button id="prev-month" class="bg-[#151515] p-2 rounded-lg hover:bg-[#1a1a1a] transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 id="current-month" class="text-xl font-semibold"></h3>
+                        <button id="next-month" class="bg-[#151515] p-2 rounded-lg hover:bg-[#1a1a1a] transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Weekday Headers -->
+                    <div class="grid grid-cols-7 gap-2 mb-2">
+                        <div class="text-center text-gray-400 font-medium">Sun</div>
+                        <div class="text-center text-gray-400 font-medium">Mon</div>
+                        <div class="text-center text-gray-400 font-medium">Tue</div>
+                        <div class="text-center text-gray-400 font-medium">Wed</div>
+                        <div class="text-center text-gray-400 font-medium">Thu</div>
+                        <div class="text-center text-gray-400 font-medium">Fri</div>
+                        <div class="text-center text-gray-400 font-medium">Sat</div>
+                    </div>
+                    
+                    <div id="calendar-grid" class="grid grid-cols-7 gap-2">
+                        <!-- Calendar days will be added here dynamically -->
+                    </div>
+                </div>
+
+                <!-- Subject Details Modal -->
+                <div id="subject-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+                    <div class="bg-[#111111] rounded-xl p-6 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 id="modal-subject" class="text-xl font-bold"></h3>
+                            <button id="close-subject-modal" class="text-gray-400 hover:text-white">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div id="subject-modal-content" class="space-y-4">
+                            <!-- Subject details will be added here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
