@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="landing.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .video-container {
+            transition: transform 0.3s ease, z-index 0.3s ease;
+        }
+        
+        /* Removing the video enlargement effect */
+        /* .video-container:hover {
+            transform: scale(1.1);
+            z-index: 20;
+        } */
+        
+        .subject-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        /* Removing the hover enlargement effect */
+        /* .subject-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+            z-index: 10;
+        } */
+    </style>
 </head>
 <body class="bg-[#000000] text-white min-h-screen">
     
@@ -26,6 +49,10 @@
             <a href="planner.html" class="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300 flex items-center">
                 <i class="fas fa-calendar-check mr-2"></i>
                 Make Study Plan
+            </a>
+            <a href="subscription.html" class="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-crown mr-2"></i>
+                Subscribe
             </a>
             <a href="login.html" class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
                 <i class="fas fa-user-circle mr-2"></i>
@@ -73,11 +100,11 @@
             <!-- Video Examples Section -->
             <div class="mt-8">
                 <h3 class="text-lg font-bold mb-4">Video Examples:</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex flex-col space-y-6 max-w-2xl mx-auto">
                     <!-- Physics Video -->
-                    <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
-                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Physics">
+                    <div class="bg-[#151515] rounded-lg overflow-hidden subject-card">
+                        <div class="aspect-video relative group cursor-pointer video-container" onclick="playVideo(this)">
+                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Physics" autoplay muted loop>
                                 <source src="https://link.storjshare.io/raw/jvonzbb6f67ziv3xhfvlhpiqt7bq/deeplearn/AccelerationVelocityGraph.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -92,9 +119,9 @@
                     </div>
                     
                     <!-- Chemistry Video -->
-                    <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
-                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Chemistry">
+                    <div class="bg-[#151515] rounded-lg overflow-hidden subject-card">
+                        <div class="aspect-video relative group cursor-pointer video-container" onclick="playVideo(this)">
+                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Chemistry" autoplay muted loop>
                                 <source src="https://link.storjshare.io/raw/jxzwau5gkgygeyef3pbyqm66gx5a/deeplearn/MoleConceptVisualization_temp.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -109,9 +136,9 @@
                     </div>
                     
                     <!-- Mathematics Video -->
-                    <div class="bg-[#151515] rounded-lg overflow-hidden">
-                        <div class="aspect-video relative group cursor-pointer" onclick="playVideo(this)">
-                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Mathematics">
+                    <div class="bg-[#151515] rounded-lg overflow-hidden subject-card">
+                        <div class="aspect-video relative group cursor-pointer video-container" onclick="playVideo(this)">
+                            <video class="w-full h-full object-cover" poster="https://via.placeholder.com/640x360/151515/FFFFFF?text=Mathematics" autoplay muted loop>
                                 <source src="https://link.storjshare.io/raw/ju74nsasj5acufosa2sljaf3ixva/deeplearn/DifferentiationVisualization.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -269,7 +296,15 @@
         </div>
 
         <!-- Quick Suggestions -->
-        
+        <div class="text-center">
+            <p class="text-sm text-gray-400 mb-3">Popular topics:</p>
+            <div class="flex flex-wrap justify-center gap-2">
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Machine Learning</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Python Basics</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Web Development</span>
+                <span class="px-3 py-1 bg-[#111111] rounded-full text-sm hover:bg-indigo-600 cursor-pointer transition-colors duration-300">Data Structures</span>
+            </div>
+        </div>
     </main>
 
     <script src="landing.js"></script>
