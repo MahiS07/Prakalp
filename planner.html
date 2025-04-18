@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn - Study Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="planner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#000000] text-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-[#0A0A0A] px-5 py-3 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">DeepLearn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+        <div>
+            <a href="index.html" class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-home mr-2"></i>
+                Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-6 text-center bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+                AI-Powered Study Planner
+            </h1>
+            <p class="text-gray-400 text-center mb-8">
+                Upload your exam timetable and let AI create a personalized study schedule
+            </p>
+
+            <!-- Upload Section -->
+            <div class="bg-[#111111] rounded-xl p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Step 1: Upload Exam Timetable</h2>
+                <div class="border-2 border-dashed border-gray-700 rounded-lg p-8 text-center">
+                    <input type="file" id="timetable-upload" accept=".pdf" class="hidden">
+                    <label for="timetable-upload" class="cursor-pointer">
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-file-pdf text-4xl text-indigo-500 mb-4"></i>
+                            <p class="text-gray-400 mb-2">Drag and drop your PDF timetable here</p>
+                            <p class="text-sm text-gray-500">or click to browse files</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Time Availability Section -->
+            <div class="bg-[#111111] rounded-xl p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Step 2: Set Your Available Time Slots</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-gray-400 mb-2">Number of Free Slots per Day</label>
+                        <input type="number" id="free-slots" min="1" max="5" class="w-full bg-[#151515] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div id="time-slots-container" class="space-y-4">
+                        <!-- Time slots will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Difficulty Section -->
+            <div class="bg-[#111111] rounded-xl p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Step 3: Rate Subject Difficulty</h2>
+                <div id="subjects-container" class="space-y-6">
+                    <!-- Physics -->
+                    <div class="subject-item">
+                        <h3 class="text-lg font-semibold mb-2">Physics</h3>
+                        <div class="difficulty-selector flex space-x-4">
+                            <label class="radio-label">
+                                <input type="radio" name="physics-difficulty" value="easy" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Easy</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="physics-difficulty" value="neutral" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Neutral</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="physics-difficulty" value="hard" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Hard</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Mathematics -->
+                    <div class="subject-item">
+                        <h3 class="text-lg font-semibold mb-2">Mathematics</h3>
+                        <div class="difficulty-selector flex space-x-4">
+                            <label class="radio-label">
+                                <input type="radio" name="math-difficulty" value="easy" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Easy</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="math-difficulty" value="neutral" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Neutral</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="math-difficulty" value="hard" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Hard</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Chemistry -->
+                    <div class="subject-item">
+                        <h3 class="text-lg font-semibold mb-2">Chemistry</h3>
+                        <div class="difficulty-selector flex space-x-4">
+                            <label class="radio-label">
+                                <input type="radio" name="chem-difficulty" value="easy" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Easy</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="chem-difficulty" value="neutral" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Neutral</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="chem-difficulty" value="hard" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Hard</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Biology -->
+                    <div class="subject-item">
+                        <h3 class="text-lg font-semibold mb-2">Biology</h3>
+                        <div class="difficulty-selector flex space-x-4">
+                            <label class="radio-label">
+                                <input type="radio" name="bio-difficulty" value="easy" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Easy</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="bio-difficulty" value="neutral" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Neutral</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="bio-difficulty" value="hard" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Hard</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- English -->
+                    <div class="subject-item">
+                        <h3 class="text-lg font-semibold mb-2">English</h3>
+                        <div class="difficulty-selector flex space-x-4">
+                            <label class="radio-label">
+                                <input type="radio" name="eng-difficulty" value="easy" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Easy</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="eng-difficulty" value="neutral" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Neutral</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="eng-difficulty" value="hard" class="radio-input">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Hard</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="text-center mb-8">
+                <button id="generate-plan" class="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 transition-colors duration-300 shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-1">
+                    <i class="fas fa-magic mr-2"></i> Generate Study Plan
+                </button>
+            </div>
+
+            <!-- Study Plan Display -->
+            <div id="study-plan" class="bg-[#111111] rounded-xl p-6 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Your Personalized Study Plan</h2>
+                    <button id="download-plan" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300 flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download PDF
+                    </button>
+                </div>
+                <div id="timetable" class="overflow-x-auto">
+                    <!-- Timetable will be generated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="planner.js"></script>
+</body>
+</html> 
