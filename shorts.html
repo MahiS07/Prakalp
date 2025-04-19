@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn - AI Shorts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="shorts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#000000] text-white min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-[#0A0A0A] px-5 py-3 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">DeepLearn</h1>
+                <p class="text-xs text-gray-400 italic">Learn Deep, Learn Smart</p>
+            </div>
+        </div>
+        <div class="flex space-x-3">
+            <a href="planner.html" class="px-4 py-2 rounded-lg hover:bg-purple-700/20 transition-colors duration-300 flex items-center border border-purple-600 text-purple-400">
+                <i class="fas fa-calendar-check mr-2"></i>
+                Make Study Plan
+            </a>
+            <a href="subscription.html" class="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-crown mr-2"></i>
+                Subscribe
+            </a>
+            <a href="login.html" class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center">
+                <i class="fas fa-user-circle mr-2"></i>
+                Sign In
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Topic Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold mb-2 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Machine Learning</h1>
+            <p class="text-gray-400">Short, focused videos to help you understand key concepts</p>
+        </div>
+
+        <!-- Video Reels Container -->
+        <div class="video-reels-container">
+            <!-- Navigation Buttons -->
+            <div class="video-navigation">
+                <button class="nav-btn up-btn" onclick="navigateVideos('up')">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="nav-btn down-btn" onclick="navigateVideos('down')">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <!-- Linear Regression Video -->
+            <div class="video-reel">
+                <div class="video-container fullscreen-video">
+                    <video class="w-full h-full object-cover" autoplay loop>
+                        <source src="https://link.storjshare.io/raw/jxgivucfrrcrhu2kr5zrqcmthfxa/deeplearn/LinearRegressionExplanation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-info">
+                            <h3 class="text-xl font-bold mb-2">Linear Regression</h3>
+                            <p class="text-gray-300">Understanding the fundamentals of linear regression in machine learning</p>
+                        </div>
+                        <div class="video-actions">
+                            <div class="volume-control">
+                                <button class="volume-btn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.5k</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logistic Regression Video -->
+            <div class="video-reel">
+                <div class="video-container fullscreen-video">
+                    <video class="w-full h-full object-cover" autoplay loop>
+                        <source src="https://link.storjshare.io/raw/jvm5utev4owvadrpl4n7rkyx2zza/deeplearn/logistic.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-info">
+                            <h3 class="text-xl font-bold mb-2">Logistic Regression</h3>
+                            <p class="text-gray-300">Learn how logistic regression handles classification problems</p>
+                        </div>
+                        <div class="video-actions">
+                            <div class="volume-control">
+                                <button class="volume-btn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.2k</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SVM Video -->
+            <div class="video-reel">
+                <div class="video-container fullscreen-video">
+                    <video class="w-full h-full object-cover" autoplay loop>
+                        <source src="https://link.storjshare.io/raw/jvl75qbokzgv6di367owchwudrdq/deeplearn/svm.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-info">
+                            <h3 class="text-xl font-bold mb-2">Support Vector Machines</h3>
+                            <p class="text-gray-300">Understanding the power of SVMs in classification tasks</p>
+                        </div>
+                        <div class="video-actions">
+                            <div class="volume-control">
+                                <button class="volume-btn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.8k</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KNN Video -->
+            <div class="video-reel">
+                <div class="video-container fullscreen-video">
+                    <video class="w-full h-full object-cover" autoplay loop>
+                        <source src="https://link.storjshare.io/raw/juvpzawlimpybuf25tqq6zjfy42q/deeplearn/knn.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-info">
+                            <h3 class="text-xl font-bold mb-2">K-Nearest Neighbors</h3>
+                            <p class="text-gray-300">A simple yet powerful classification algorithm explained</p>
+                        </div>
+                        <div class="video-actions">
+                            <div class="volume-control">
+                                <button class="volume-btn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button class="action-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.3k</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="shorts.js"></script>
+</body>
+</html> 
